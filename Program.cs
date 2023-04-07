@@ -1,35 +1,27 @@
-﻿Console.WriteLine("Input amount of numbers");
-int size = Convert.ToInt32(Console.ReadLine());
-int index = 0;
-int[] numbers = new int[size];
-while(index<size)
+Console.Write("Input amount of numbers: ");
+var size = Convert.ToInt32(Console.ReadLine());
+Console.WriteLine();
+var numbers = new int[size];
+
+for (var i = 0; i < size; i++)
 {
-    Console.WriteLine("Input the number");
-    numbers[index] = Convert.ToInt32(Console.ReadLine());
-    index = index + 1;
+    Console.Write("Input the number: ");
+    numbers[i] = Convert.ToInt32(Console.ReadLine());
 }
-int max = numbers[0];
-index = 1;
-while(index<size)
+
+var maxNumber = numbers[0];
+var minNumber = numbers[0];
+for (var i = 0; i < size; i++)
 {
-    if(max < numbers[index])
+    if (numbers[i] > maxNumber)
     {
-        max = numbers[index];
-        index = (index + 1);
+        maxNumber = numbers[i];
     }
-    else
-        index = index + 1;
-}
-int min = numbers[0];
-index = 1;
-while(index<size)
-{
-    if(min > numbers[index])
+    if (numbers[i] < minNumber)
     {
-        min = numbers[index];
-        index = (index + 1);
+        minNumber = numbers[i];
     }
-    else
-        index = index + 1;
 }
-Console.WriteLine($"Maximal number is {max} and minimal is {min}.");
+
+
+Console.WriteLine($"Maximal number is {maxNumber} and minimal is {minNumber}.");
